@@ -19,6 +19,9 @@ body {
   font-size: 14px;
   letter-spacing: 0.03em;
 }
+.no-scroll {
+  overflow: hidden;
+}
 .container {
   outline: 2px solid rgb(224, 244, 8);
   width: 1200px;
@@ -105,13 +108,7 @@ button {
   align-items: center;
 }
 .site-nav .link {
-  color: var(--color-text);
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.02em;
+  transition: color 205ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .site-nav .link:hover,
 .site-nav .link:focus {
@@ -121,9 +118,33 @@ button {
   color: var(--color-logo);
 }
 .header-item {
+  position: relative;
   padding-top: 32px;
   padding-bottom: 32px;
 }
+
+.header-link {
+  color: var(--color-text);
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+}
+
+.site-nav .current::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: var(--color-logo);
+}
+
 .header-nav-icon {
   fill: currentColor;
   margin-right: 10px;
@@ -134,12 +155,9 @@ button {
   gap: 50px;
 }
 .auth-nav .link {
-  color: var(--color-accent);
-  font-weight: 500;
-  line-height: 1.14;
-  letter-spacing: 0.02em;
   display: flex;
   align-items: center;
+  transition: color 205ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .auth-nav .link:hover,
 .auth-nav .link:focus {
@@ -160,20 +178,23 @@ button {
   max-height: 600px;
   margin: 0 auto;
 }
-.business-title {
-  margin-bottom: 30px;
+.business-title:hover,
+.business-title:focus {
+  color: var(--color-title-second);
 }
 .business-title {
   color: var(--color-title-second);
   font-weight: 900;
   font-size: 44px;
   width: 696px;
+  line-height: 1.36;
+  letter-spacing: 0.06em;
+
   margin: 0 auto;
   margin-bottom: 30px;
-  line-height: 1.36;
-  text-align: center;
-  letter-spacing: 0.06em;
+
   text-transform: uppercase;
+  text-align: center;
 }
 /*-----------------button ------------------*/
 
@@ -185,10 +206,12 @@ button {
   line-height: 1.88;
   letter-spacing: 0.06em;
   padding: 10px 32px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .business-btn:hover,
 .business-btn:focus {
   background-color: #118ce8;
+  color: var(--color-title-second);
 }
 /*****************business end****************/
 
@@ -268,7 +291,25 @@ button {
   gap: 30px;
 }
 .work-item {
-  display: inline;
+  position: relative;
+}
+.work-box {
+  left: 0;
+  bottom: 0;
+  width: 370px;
+  height: 70px;
+  position: absolute;
+  background-color: rgba(47, 48, 58, 0.8);
+  text-align: center;
+}
+.work-box-text {
+  font-size: 14px;
+  line-height: 1.17;
+  line-height: 100%;
+  letter-spacing: 3%;
+  color: var(--color-title-second);
+  padding-top: 26px;
+  padding-bottom: 26px;
 }
 /*********************Work end********************/
 
@@ -314,6 +355,11 @@ button {
   text-align: center;
   letter-spacing: 0.03em;
 }
+.cmd-item {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+/*************************Socials icon*****************/
 .socials {
   display: flex;
   justify-content: center;
@@ -327,6 +373,8 @@ button {
   border-radius: 50%;
   align-items: center;
   justify-content: center;
+  transition: fill 400ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .socials-icon {
   fill: currentColor;
@@ -339,10 +387,7 @@ button {
 .socials-link:focus .socials-icon {
   fill: var(--color-title-second);
 }
-.cmd-item {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
+
 /*******************Command end********************/
 /*--------------------Klient----------------------*/
 .klient {
@@ -367,23 +412,21 @@ button {
 }
 .social-klient-link {
   display: flex;
-  color: var(--color-icon-fix);
+  fill: var(--color-icon-fix);
   width: 170px;
   height: 92px;
   border: 1px solid var(--color-icon-fix);
   border-radius: 4px;
   align-items: center;
   justify-content: center;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1)-in;
 }
-.social-klient-link:hover .social-klient-icon {
+.social-klient-link:hover,
+.social-klient-link:focus {
   fill: var(--color-logo);
-}
-.social-klient-link:hover {
   border: 1px solid var(--color-logo);
 }
-.social-klient-icon {
-  fill: currentColor;
-}
+
 /*******************Klient end*********************/
 /*--------------------footer----------------------*/
 footer {
@@ -421,6 +464,7 @@ footer {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .adres-link {
@@ -429,6 +473,7 @@ footer {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.02em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .adres-link:hover,
 :focus {
@@ -446,6 +491,7 @@ footer {
   color: var(--color-title-second);
   margin-bottom: 20px;
 }
+/*******************Footer icons*********************/
 .footer-icon-list {
   display: flex;
   gap: 10px;
@@ -460,6 +506,7 @@ footer {
   justify-content: center;
   outline: 2px solid #e0f408;
   background-color: #ffffff1a;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-icon-link:hover,
@@ -471,6 +518,56 @@ footer {
 }
 
 /*********************footer end**********************/
+/*******************Modal window*********************/
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.3) rotate(1turn);
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1) rotate(0);
+  width: 528px;
+  height: 581px;
+  border-radius: 4px;
+  background-color: var(--color-title-second);
+  opacity: 1;
+  transition: transform 400ms ease-in 200ms, opacity 200ms ease-in-out 200ms;
+}
+.modal-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  border: 1px solid var(--color-logo);
+  background-color: transparent;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
 
 /*----------------Стили для портфолио----------------*/
 /*----------------working container------------------*/
@@ -489,11 +586,6 @@ footer {
   margin-bottom: 50px;
   gap: 8px;
 }
-.button-item:hover,
-:focus {
-  box-shadow: 0px, 2px rgba(0, 0, 0, 0.12), 0px, 1px rgba(0, 0, 0, 0.08), 0px,
-    3px rgba(0, 0, 0, 0.1);
-}
 
 .button-nav {
   color: var(--color-text);
@@ -504,6 +596,11 @@ footer {
   line-height: 1.62;
   letter-spacing: 0.03em;
   padding: 6px 22px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color cubic-bezier(0.4, 0, 0.2, 1), box-shadow cubic-bezier(0.4, 0, 0.2, 1);
+  transition: clor 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadov 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-nav:hover,
 .button-nav:focus {
@@ -529,6 +626,7 @@ footer {
 }
 .working-link {
   display: block;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .working-link:hover,
 .working-link:focus {
@@ -549,6 +647,36 @@ footer {
   font-size: 16px;
   line-height: 1.87;
   letter-spacing: 0.03em;
+}
+.work-items {
+  position: relative;
+  overflow: hidden;
+}
+.work-items:hover .work-overlay {
+  transform: translateY(0);
+}
+.work-overlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(33, 150, 243, 0.9);
+  padding: 63px 24px;
+  transform: translateY(100%);
+}
+.overlay-text {
+  font-style: regular;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.55;
+  line-height: 133%;
+  color: rgba(255, 255, 255, 1);
+  text-align: left;
+  letter-spacing: 0.3%;
 }
 /*****************working container end*******************/
 /****************Стили для портфолио end******************/
