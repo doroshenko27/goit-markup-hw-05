@@ -44,7 +44,7 @@
         </nav>
         <ul class="auth-nav list">
           <li class="header-item">
-            <a class="header-link-adrress link" href="mailto:info@devstudio.com">
+            <a class="header-link-adress link" href="mailto:info@devstudio.com">
               <svg class="header-nav-icon" width="16" height="12">
                 <use class="header-icon" href="./images/icon-stile.svg#mail"></use>
               </svg>
@@ -52,7 +52,7 @@
             >
           </li>
           <li class="header-item">
-            <a class="header-link-adrress link" href="tel:+380961111111">
+            <a class="header-link-adress link" href="tel:+380961111111">
               <svg class="header-nav-icon" width="10" height="16">
                 <use class="header-icon" href="./images/icon-stile.svg#tel"></use>
               </svg>
@@ -163,17 +163,17 @@
             <li class="work-item">
               <img src="./images/box1.jpg" class="work-photo" alt="work examples" width="370" />
 
-              <h3 class="work-box-text">Десктопные приложения</h3>
+              <p class="work-box-text">Десктопные приложения</p>
             </li>
             <li class="work-item">
               <img src="./images/box2.jpg" class="work-photo" alt="work examples" width="370" />
 
-              <h3 class="work-box-text">Мобильные приложения</h3>
+              <p class="work-box-text">Мобильные приложения</p>
             </li>
             <li class="work-item">
               <img src="./images/box3.jpg" class="work-photo" alt="work examples" width="370" />
 
-              <h3 class="work-box-text">Дизайнерские решения</h3>
+              <p class="work-box-text">Дизайнерские решения</p>
             </li>
           </ul>
         </div>
@@ -610,6 +610,37 @@
             <use href="./images/icon-stile.svg#exit"></use>
           </svg>
         </button>
+        <form name="modal-form" autocomplete="on">
+          <div class="modal-form-name">
+            <h2 class="modal-form-header">Оставьте свои данные, мы вам перезвоним</h2>
+            <div class="modal-form-name">
+              <label class="modal-form-label" for="name">Имя</label>
+              <input class="modal-forn-input" type="text" id="name" name="user-name" />
+            </div>
+            <div class="modal-form-phone">
+              <label class="modal-form-label" for="phone">Телефон</label>
+              <input class="modal-forn-input" type="tel" id="phone" name="user-phone" />
+            </div>
+            <div class="modal-form-mail">
+              <label class="modal-form-label" for="mail">Почта</label>
+              <input class="modal-forn-input" type="email" id="mail" name="user-mail" />
+            </div>
+            <div class="modal-form-comment">
+              <label class="modal-form-label" for="comment">Коментарий</label>
+              <textarea
+                name="comment"
+                id="comment"
+                rows="10"
+                placeholder="Введите текст"
+              ></textarea>
+            </div>
+            <div class="modal-form-agreement">
+              <input type="checkbox" id="agreement" />
+              <label for="agreement">Соглашаюсь с рассылкой и принимаю Условия договора</label>
+            </div>
+          </div>
+          <button class="submit">Отправить</button>
+        </form>
       </div>
     </div>
     <script src="./js/header-scroll.js"></script>
